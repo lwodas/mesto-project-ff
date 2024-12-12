@@ -100,7 +100,7 @@ function addCard(cardElement, cardPosition) {
 
 //Попап картинки
 
-function openPopupImage(cardImageSrc, cardImageAlt) {
+export function openPopupImage(cardImageSrc, cardImageAlt) {
 	popupImage.src = cardImageSrc;
 	popupImage.alt = cardImageAlt;
 	popupCaption.textContent = cardImageAlt;
