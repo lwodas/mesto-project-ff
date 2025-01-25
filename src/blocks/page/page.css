@@ -4,3 +4,14 @@
 .page {
   background: #000;
 }
+
+.popup__input_type_error {
+  display: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #FF0000;
+}
+
+.popup__error_visible {
+  display: block;
+}
