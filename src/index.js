@@ -1,6 +1,7 @@
 import { initialCards } from "./cards";
 import { createCardElement, removeCard, like } from "./components/card.js";
 import { closeModal, openModal } from "./components/modal.js";
+import { enableValidation, clearValidation } from "./components/validation.js";
 import "./styles/index.css";
 const cardTemplate = document
   .querySelector("#card-template")
