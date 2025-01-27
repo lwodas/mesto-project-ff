@@ -20,11 +20,12 @@ const popupTypeImage = document.querySelector(".popup_type_image");
 const popupImage = popupTypeImage.querySelector(".popup__image");
 const popupCaption = popupTypeImage.querySelector(".popup__caption");
 
-const popupClose = document.querySelectorAll(".popup__close");
+const popupsClose = document.querySelectorAll(".popup__close");
 
 const profileInfo = document.querySelector(".profile__info");
 const profileTitle = profileInfo.querySelector(".profile__title");
 const profileDescription = profileInfo.querySelector(".profile__description");
+const profileAvatar = document.querySelector('.profile__image');
 const profileEditButton = profileInfo.querySelector(".profile__edit-button");
 
 const editAvatarPopup = document.querySelector(".popup_type_avatar");
@@ -57,7 +58,7 @@ const inputTypeCardName = popupNewCardForm.querySelector(
 );
 const inputTypeUrl = popupNewCardForm.querySelector(".popup__input_type_url");
 
-popupClose.forEach((button) => {
+popupsClose.forEach((button) => {
   const popup = button.closest(".popup");
   button.addEventListener("click", () => {
     if (popup) {

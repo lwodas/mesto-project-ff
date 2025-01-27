@@ -6,6 +6,10 @@ const apiConfig = {
     }
 }
 
+function request(url, options) {
+    return fetch(url, options).then(handleResponse)
+}
+
 export const handleResponse = res => {
     if (res.ok) {
         return res.json();
@@ -14,52 +18,52 @@ export const handleResponse = res => {
 }
 
 export const fetchUserData = () => {
-        return fetch(`${apiConfig.Url}/users/me`, {
+        return request(`${apiConfig.Url}/users/me`, {
             headers: apiConfig.headers,
-        }).then(handleResponse);
+        });
 }
 
 export const fetchInitialCards = () => {
-    return fetch(`${apiConfig.Url}/cards`, {
+    return request(`${apiConfig.Url}/cards`, {
         headers: apiConfig.headers,
-    }).then(handleResponse);
+    });
 };
 
-export const updateData = (name, about) => {
-    return fetch(`${apiConfig.Url}/users/me`, {
+export const updateUserData = (name, about) => {
+    return request(`${apiConfig.Url}/users/me`, {
         method: 'PATCH',
         headers: apiConfig.headers,
         body: JSON.stringify({
             name,
             about,
         })
-    }).then(handleResponse);
+    });
 };
 
 export const addNewCard = (name, link) => {
-    return fetch(`${apiConfig.Url}/cards`, {
+    return request(`${apiConfig.Url}/cards`, {
         method: 'POST',
         headers: apiConfig.headers,
         body: JSON.stringify({
             name,
             link,
         })
-    }).then(handleResponse);
+    });
 };
 
 export const setLikeApi = (cardId, isLiked) => {
-    return fetch(`${apiConfig.Url}/cards/${cardId}`, {
+    return request(`${apiConfig.Url}/cards/${cardId}`, {
         method: isLiked ? 'DELETE' : 'PUT',
         headers: apiConfig.headers,
-    }).then(handleResponse);
+    });
 };
 
 export const updateAvatar = avatar => {
-    return fetch(`${apiConfig.Url}/users/me/avatar`, {
+    return request(`${apiConfig.Url}/users/me/avatar`, {
         method: 'PATCH',
         headers: apiConfig.headers,
         body: JSON.stringify({
             avatar,
         })
-    }).then(handleResponse);
+    });
 };
