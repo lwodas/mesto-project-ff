@@ -1,7 +1,7 @@
 const apiConfig = {
     Url: 'https://mesto.nomoreparties.co/v1/pwff-cohort-1',
     headers: {
-        authorzation: 'fd6b19c2-a28e-4657-990a-229a88c051b3',
+        authorization: 'fd6b19c2-a28e-4657-990a-229a88c051b3',
         'Content-Type': 'application/json',
     }
 }
@@ -15,13 +15,13 @@ export const handleResponse = res => {
         return res.json();
     }
     return Promise.reject(`Ошибка ${res.status}`);
-}
+};
 
 export const fetchUserData = () => {
         return request(`${apiConfig.Url}/users/me`, {
             headers: apiConfig.headers,
         });
-}
+};
 
 export const fetchInitialCards = () => {
     return request(`${apiConfig.Url}/cards`, {
@@ -36,7 +36,7 @@ export const updateUserData = (name, about) => {
         body: JSON.stringify({
             name,
             about,
-        })
+        }),
     });
 };
 
@@ -54,6 +54,13 @@ export const addNewCard = (name, link) => {
 export const setLikeApi = (cardId, isLiked) => {
     return request(`${apiConfig.Url}/cards/${cardId}`, {
         method: isLiked ? 'DELETE' : 'PUT',
+        headers: apiConfig.headers,
+    });
+};
+
+export const deleteCardApi = cardId => {
+    return request(`${apiConfig.Url}/cards/${cardId}`, {
+        method: 'DELETE',
         headers: apiConfig.headers,
     });
 };
