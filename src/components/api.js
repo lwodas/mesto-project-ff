@@ -52,7 +52,7 @@ export const addNewCard = (name, link) => {
 };
 
 export const setLikeApi = (cardId, isLiked) => {
-    return request(`${apiConfig.Url}/cards/${cardId}`, {
+    return request(`${apiConfig.Url}/cards/likes/${cardId}`, {
         method: isLiked ? 'DELETE' : 'PUT',
         headers: apiConfig.headers,
     });
